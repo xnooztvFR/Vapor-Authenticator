@@ -120,7 +120,7 @@ You will need `node` and `npm` to run this project as a developer and build it f
 
 1. Clone or download this project from GitHub and `cd` into the project directory.
 This will install all necessary dependencies, including dev-dependencies, to allow you to build the project alongside install developer tools to make development easier.
-3. Run `npm start` to build and bootup the app to ensure that it is working for you. You can exit using `Ctrl + C` once you have finished testing it.
+3. Run `npm install` then `npx electron-forge import` then `npm run make` to build the app to ensure that it is working for you. The built app is in the `out` folder
 
 ## Roadmap
 
