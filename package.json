@@ -24,6 +24,7 @@
     "concurrently": "^5.3.0",
     "css-loader": "^5.0.1",
     "electron": "11.0.3",
+    "electron-packager": "^15.5.1",
     "eslint": "^7.14.0",
     "file-loader": "^6.2.0",
     "icon-gen": "^2.1.0",
@@ -46,16 +47,16 @@
     "watch:electron": "tsc --watch",
     "watch:react": "webpack --config webpack.common.js --watch",
     "watch": "concurrently \"npm run watch:react\" \"npm run bootup\"",
-    "start": "electron-forge start",
+    "start": "run-script-os",
     "start:darwin:linux": "export NODE_ENV=development&& npm run build && electron .",
     "start:win32": "SET NODE_ENV=development&& npm run build && electron .",
     "pre-commit": "npm run lint && npm run build",
     "generate-icons": "mkdir -p icons/ && icon-gen -i ./icon.svg -o icons/ --icns --icns-name icon --ico --ico-name icon --favicon",
-    "package": "electron-forge package",
+    "package": "electron-builder --dir",
     "make:macosx": "electron-builder -m",
     "make:linux": "electron-builder -l",
     "make:windows": "electron-builder -w",
-    "make": "electron-forge make"
+    "make": "npm run make:macosx && npm run make:linux && npm run make:windows"
   },
   "repository": {
     "type": "git",

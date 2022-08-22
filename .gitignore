@@ -1,6 +1,7 @@
 # Build directory
 build/
-
+Vapor Authentificator-win32-x64/
+Vapor-Authentificator-win32-x64
 # Logs
 logs
 *.log
