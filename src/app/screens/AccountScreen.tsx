@@ -53,7 +53,7 @@ export default function AccountScreen(props) {
         {switchingUser && <div className="absolute w-full h-full bg-black bg-opacity-20 z-20"></div>}
         <div style={{backgroundColor: "#0e0d1c"}} className="p-20 justify-center items-start h-screen w-screen">
             
-            <div id="ScreenTitle" className="text-4xl font-bold text-white my-3">Quel compte<br/> choisiras-tu aujourd'hui?</div>
+            <div id="ScreenTitle" className="text-4xl font-bold text-white my-3">Quel compte<br/> choisiras-tu aujourd'hui? :D</div>
             <br />
             <div id="ScreenContents" className="overflow-y-auto h-full py-10">
                 {renderAccounts()}
