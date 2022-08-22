@@ -10,6 +10,11 @@
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
@@ -19,7 +24,6 @@
     "concurrently": "^5.3.0",
     "css-loader": "^5.0.1",
     "electron": "11.0.3",
-    "electron-builder": "^22.9.1",
     "eslint": "^7.14.0",
     "file-loader": "^6.2.0",
     "icon-gen": "^2.1.0",
@@ -42,16 +46,16 @@
     "watch:electron": "tsc --watch",
     "watch:react": "webpack --config webpack.common.js --watch",
     "watch": "concurrently \"npm run watch:react\" \"npm run bootup\"",
-    "start": "run-script-os",
+    "start": "electron-forge start",
     "start:darwin:linux": "export NODE_ENV=development&& npm run build && electron .",
     "start:win32": "SET NODE_ENV=development&& npm run build && electron .",
     "pre-commit": "npm run lint && npm run build",
     "generate-icons": "mkdir -p icons/ && icon-gen -i ./icon.svg -o icons/ --icns --icns-name icon --ico --ico-name icon --favicon",
-    "package": "electron-builder --dir",
+    "package": "electron-forge package",
     "make:macosx": "electron-builder -m",
     "make:linux": "electron-builder -l",
     "make:windows": "electron-builder -w",
-    "make": "npm run make:macosx && npm run make:linux && npm run make:windows"
+    "make": "electron-forge make"
   },
   "repository": {
     "type": "git",
@@ -65,6 +69,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^6.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -88,6 +93,33 @@
     "linux": {
       "icon": "icons/icon.icns",
       "category": "Utility"
+    }
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "vapor_authenticator"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
     }
   }
 }
