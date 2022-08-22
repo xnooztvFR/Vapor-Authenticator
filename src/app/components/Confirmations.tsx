@@ -21,11 +21,11 @@ export default function Confirmations(props) {
     function renderConfirmations() {
         if (!props.user.usingVapor)
             return (<div className="m-4 mt-2 p-4 rounded bg-yellow-300 shadow flex w-full justify-center font-bold">
-                You're not using Vapor as your authenticator - can't get your confirmations
+                Vous n'utilisez pas Vapor comme authentificateur - vous ne pouvez pas obtenir vos confirmations d'échanges
             </div>);
         if (confirmations.length == 0)
             return (<div className="m-4 mt-2 p-4 rounded bg-white shadow flex w-full justify-center">
-                No confirmations found
+                Aucune confirmation d'échange trouvée
             </div>)
 
         return confirmations.map((conf) => {

@@ -149,9 +149,9 @@ export async function importTwoFactor(prom: Promise<Electron.OpenDialogReturnVal
         );
         const account = getMainAccount();
         if (!(data.shared_secret && data.revocation_code && data.identity_secret && typeof data.Session == "object"))
-            return "Invalid maFile";
+            return "maFile invalide";
         if (data.Session.SteamID !== account.steamid) {
-            return "This maFile belongs to another account";
+            return "Ce maFile appartient à un autre compte";
         }
         editStore(_store => {
             const account = getMainAccount();
@@ -176,9 +176,9 @@ export async function importTwoFactor(prom: Promise<Electron.OpenDialogReturnVal
     } catch (err) {
         switch (err.name) {
             case "SyntaxError":
-                return "Invalid maFile";
+                return "maFile invalide";
             default:
-                return "Something went wrong: " + err.toString();
+                return "Quelque chose s'est mal passé: " + err.toString();
         }
     }
 }

@@ -49,7 +49,7 @@ export function getActiveIncomingOffers(): Promise<any[]> {
 export function acceptOffer(offerid: string): Promise<string> {
     return new Promise((resolve, reject) => {
         getTradeOfferManager().then((manager) => {
-            if (manager == null) return reject("No offers for this user under this offerid");
+            if (manager == null) return reject("Aucune offre pour cet utilisateur sous cet ID d'offre");
             manager.getOffer(offerid, (err, offer) => {
                 if (err) return reject(err);
                 offer.accept(false, (err, status) => {
@@ -65,7 +65,7 @@ export function acceptOffer(offerid: string): Promise<string> {
 export function declineOffer(offerid: string): Promise<void> {
     return new Promise((resolve, reject) => {
         getTradeOfferManager().then((manager) => {
-            if (manager == null) return reject("No offers for this user under this offerid");
+            if (manager == null) return reject("Aucune offre pour cet utilisateur sous cet ID d'offre");
 
             manager.getOffer(offerid, (err, offer) => {
                 if (err) return reject(err);

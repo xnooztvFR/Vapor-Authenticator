@@ -44,7 +44,7 @@ export async function playGames(appids: any[]): Promise<void> {
             user.setPersona(SteamUser.EPersonaState.Online);
 
             // Play either the games we've been told to play or play everything we have access to
-            user.gamesPlayed(appids != null ? appids : ["🎮 Idling with Vapor", ...user.getOwnedApps()]);
+            user.gamesPlayed(appids != null ? appids : ["🎮 Inactif avec Vapor", ...user.getOwnedApps()]);
             return resolve();
         });
     });

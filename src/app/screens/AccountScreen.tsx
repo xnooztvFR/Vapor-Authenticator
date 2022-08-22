@@ -39,7 +39,7 @@ export default function AccountScreen(props) {
                 props.setSwitchingAccounts(false);
             }}>
                 <div className="bg-black text-white text-sm text-center opacity-0 absolute h-6 -top-6 flex justify-center content-center w-24 rounded-t group-hover:opacity-100">
-                    Add Account
+                Ajouter un compte
                 </div>
                 <div className="float-left h-24 w-24 rounded bg-black bg-opacity-10 justify-center content-center flex">
                     <FontAwesomeIcon icon={faPlus} className="m-auto h-16 w-16" color="white" opacity="20%" />
@@ -53,7 +53,7 @@ export default function AccountScreen(props) {
         {switchingUser && <div className="absolute w-full h-full bg-black bg-opacity-20 z-20"></div>}
         <div style={{backgroundColor: "#0e0d1c"}} className="p-20 justify-center items-start h-screen w-screen">
             
-            <div id="ScreenTitle" className="text-4xl font-bold text-white my-3">Which account<br/> will you choose today?</div>
+            <div id="ScreenTitle" className="text-4xl font-bold text-white my-3">Quel compte<br/> choisiras-tu aujourd'hui?</div>
             <br />
             <div id="ScreenContents" className="overflow-y-auto h-full py-10">
                 {renderAccounts()}

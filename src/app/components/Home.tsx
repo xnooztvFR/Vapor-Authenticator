@@ -20,7 +20,7 @@ export default function Home(props) {
             });
         }}>
             <FontAwesomeIcon icon={faGamepad} transform={{ rotate: 42 }} size="10x" className="absolute bottom-0 right-0 opacity-20" />
-            {playingGames ? "Stop Idling" : "Play All Games"}
+            {playingGames ? "Stop Idling" : "Jouez à tous les jeux"}
         </div>        
     </div>)
 }

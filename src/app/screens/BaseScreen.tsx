@@ -36,7 +36,7 @@ export default function BaseScreen(props) {
                 </Link>
                 <br />
                 <div className="text-sm w-full cursor-pointer" onClick={() => window["electron"].window.loadURL(`https://steamcommunity.com/profiles/${props.user.steamid}`)}>
-                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Profile</div>
+                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Profil</div>
                 </div>
                 <br />
                 <div className="text-sm w-full cursor-pointer" onClick={() => window["electron"].currentUser.openSteam(`/chat/`)}>
@@ -44,11 +44,11 @@ export default function BaseScreen(props) {
                 </div>
                 <br />
                 <div className="text-sm w-full cursor-pointer" onClick={() => window["electron"].currentUser.openSteam(`/profiles/${props.user.steamid}/tradeoffers/`)}>
-                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Trades</div>
+                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Offres d'échanges</div>
                 </div>
                 <br />
                 <div className="text-sm w-full cursor-pointer" onClick={() => window["electron"].currentUser.openSteam(`/profiles/${props.user.steamid}/inventory/`)}>
-                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Inventory</div>
+                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Inventaire</div>
                 </div>
                 <br />
                 <Link className="text-sm w-full cursor-pointer" to="/confirmations">
@@ -68,7 +68,7 @@ export default function BaseScreen(props) {
                     await props.updateUser();
                     props.setSwitchingAccounts(true);
                 }}>
-                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Switch Accounts</div>
+                    <div className="font-bold text-gray-400 text-md p-2 pl-4 hover:text-white">Changer de compte</div>
                 </div>
                 <br />
             </div>

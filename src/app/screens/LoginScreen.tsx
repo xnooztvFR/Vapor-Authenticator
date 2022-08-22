@@ -23,12 +23,12 @@ export default function LoginScreen(props) {
                     <div className="text-3xl font-semibold ml-3 text-white">Vapor</div>
                 </div>
                 
-                <span className="text-xs mt-6 text-gray-100">Desktop Authenticator for Steam</span>
+                <span className="text-xs mt-6 text-gray-100">Authentificateur de bureau pour Steam</span>
 
                 {/* Login form */}
                 <div className="w-full content-center justify-center flex flex-wrap mt-10">
-                    <input id="accountName" name="username" placeholder="Username" className="rounded border p-1 mx-1" onChange={(e) => setAccountName(e.target.value)}/>
-                    <input id="password" type="password" name="password" placeholder="Password" className="rounded border p-1 mx-1" onChange={(e) => setPassword(e.target.value)}/>
+                    <input id="accountName" name="username" placeholder="Nom d'utilisateur" className="rounded border p-1 mx-1" onChange={(e) => setAccountName(e.target.value)}/>
+                    <input id="password" type="password" name="password" placeholder="Mot de passe" className="rounded border p-1 mx-1" onChange={(e) => setPassword(e.target.value)}/>
 
                         {/* Submit details */}
                     {<button className="bg-black text-white rounded px-3 text-sm inline" onClick={async () => {
@@ -68,32 +68,32 @@ export default function LoginScreen(props) {
     
         switch(error) {
             case SteamLoginErrors.MissingDetails:
-                return (<div className="text-xs text-red-600">Missing your username or password <FontAwesomeIcon icon={faSadCry} className="opacity-40 align-middle" size="2x" /></div>)
+                return (<div className="text-xs text-red-600">Il n'y a aucun nom d'utilisateur ou mot de passe <FontAwesomeIcon icon={faSadCry} className="opacity-40 align-middle" size="2x" /></div>)
             case SteamLoginErrors.IncorrectDetails:
-                return (<div className="text-sm text-red-600">Your username or password is incorrect. Please try again.</div>);
+                return (<div className="text-sm text-red-600">Votre nom d'utilisateur ou votre mot de passe est incorrect. Veuillez réessayer.</div>);
             case SteamLoginErrors.SteamGuardMobile:
                 return (<div>
-                    <input name="steamguardmobile" placeholder="Mobile Auth Code" className="rounded border p-1 mx-1"  onChange={(e) => setAuthMethod({
+                    <input name="steamguardmobile" placeholder="Code d'authentification mobile" className="rounded border p-1 mx-1"  onChange={(e) => setAuthMethod({
                         method: "twoFactorCode",
                         value: e.target.value
                     })}/>
                 </div>)
             case SteamLoginErrors.SteamGuard:
                 return (<div>
-                    <input name="steamguard" placeholder="Email Auth Code" className="rounded border p-1 mx-1" onChange={(e) => setAuthMethod({
+                    <input name="steamguard" placeholder="Code d'authentification email" className="rounded border p-1 mx-1" onChange={(e) => setAuthMethod({
                         method: "authCode",
                         value: e.target.value
                     })} />
                 </div>)
             case SteamLoginErrors.Captcha:
                 return (<div>
-                    <div className="">Please fill in this captcha</div>
+                    <div className="">Merci de remplir ce captcha</div>
                     <img src={captchaurl} />
                     <input name="captcha" placeholder="Captcha" className="rounded border p-1 mx-1" onChange={(e) => setCaptcha(e.target.value)}/>
                 </div>)
             default:
                 return (<div className="text-sm text-red-300">
-                    You have been timed out temporarily. Please try again later.
+                    Vous avez été interrompu temporairement. Veuillez réessayer plus tard.
                 </div>)
         }
     }

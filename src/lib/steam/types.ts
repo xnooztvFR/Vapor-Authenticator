@@ -10,7 +10,7 @@ export interface SteamLoginDetails {
 
 export enum SteamLoginErrors {
     MissingDetails = "MissingDetails",
-    IncorrectDetails = "Error: Uncaught Error: The account name or password that you have entered is incorrect.",
+    IncorrectDetails = "Erreur: Erreur non interceptée: Le nom de compte ou le mot de passe que vous avez entré est incorrect.",
     SteamGuard = "SteamGuard",
     SteamGuardMobile = "SteamGuardMobile",
     Captcha = "CAPTCHA",

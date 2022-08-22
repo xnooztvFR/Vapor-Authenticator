@@ -41,10 +41,10 @@ export default function AuthSetup(props) {
     }, [props.user]);
 
     function handleSetupAuthResponse({error}) {
-        if (error == "Error 2") return setAuthSetupError("Please add a phone number to this account.");
-        if (error == "Error 29") return setAuthSetupError("There is an authenticator already set up on this account. Please remove it first.");
+        if (error == "Error 2") return setAuthSetupError("Veuillez ajouter un numéro de téléphone à ce compte.");
+        if (error == "Error 29") return setAuthSetupError("Un authentificateur est déjà configuré sur ce compte. Veuillez d'abord le supprimer.");
         if (error == null) return setReceivedSMS(true);
-        return setAuthSetupError("New error never seen before - reload the application and try again. If this error persists, please make an issue on the GitHub!");
+        return setAuthSetupError("Nouvelle erreur jamais vue auparavant - rechargez l'application et réessayez. Si cette erreur persiste, merci de créer un problème sur le GitHub!");
     }
 
 
@@ -57,7 +57,7 @@ export default function AuthSetup(props) {
     return (
         <div className="m-2 flex flex-wrap">
             <div className="mx-4 font-bold text-2xl w-full text-white">
-                Authenticator
+            Authentificateur
             </div>
 
             {/* SMS authentication flow whilst a user isn't using Vapor as their authenticator */}
@@ -65,7 +65,7 @@ export default function AuthSetup(props) {
                 <div className="m-4 mt-2 p-4 rounded bg-white shadow w-full">
             {!receivedSMS && <button className="font-bold" onClick={async () => {
                 handleSetupAuthResponse(await setupDesktopAuth());
-            }}>Setup Authenticator</button>}
+            }}>Configurer l'authentificateur</button>}
 
             <div className="text-red-400 text-sm">
                 {authSetupError}
@@ -73,7 +73,7 @@ export default function AuthSetup(props) {
             
 
             {receivedSMS && <div>
-                <div>SMS from Steam sent! <br/> Please enter the code you receive to complete the setup.</div>
+                <div>SMS de Steam envoyé! <br/> Veuillez entrer le code que vous avez reçu pour terminer la configuration.</div>
                 <br />
                 <input name="" placeholder="SMS" className="rounded border p-1 m-1" onChange={(e) => setSMSCode(e.target.value)}/>
                 <button className="p-1 m-1 bg-black text-white rounded" onClick={async () => {
@@ -84,7 +84,7 @@ export default function AuthSetup(props) {
                         setReceivedSMS(false);
                         props.updateUser();
                     }
-                }}>Finish Setup</button>
+                }}>Terminer la configuration</button>
             </div>}
             </div>
                 <div className="m-4 mt-2 p-4 rounded bg-white shadow w-full">
@@ -95,7 +95,7 @@ export default function AuthSetup(props) {
                                 await importMaFile()
                             );
                             if (s == null) props.updateUser();
-                        }}>Import .maFile</button>
+                        }}>Importer un fichier .maFile</button>
                         <div className="text-red-400 text-sm">
                             {importAuthError}
                         </div>
@@ -105,18 +105,18 @@ export default function AuthSetup(props) {
         {/* This user is using Vapor! */}
         {props.user.usingVapor && <div className="m-4 mt-2 p-4 rounded bg-white shadow w-full">
             <div className="justify-center text-center w-full">
-                <span className="text-gray-400">Your Steam Guard code is</span>
+                <span className="text-gray-400">Votre code Steam Guard est</span>
                 <br />
                 <span className="font-bold text-2xl">{authCode}</span>
             </div>
             <div className="justify-center text-center w-full">
-                {30 - seconds}s left
+                {30 - seconds}s restantes
             </div>
         </div>}
         {props.user.usingVapor && <div className="m-4 p-2 rounded bg-red-600 shadow text-white block text-sm" onClick={async () => {
                 const response = await revokeDesktopAuth();
                 ((response.error == null) ? props.updateUser() : "");
-            }}>Revoke Steam Authenticator
+            }}>Révoquer l'authentificateur Steam
         </div>}
     </div>)
 }
