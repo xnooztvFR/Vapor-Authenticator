@@ -120,7 +120,7 @@ You will need `node` and `npm` to run this project as a developer and build it f
 
 1. Clone or download this project from GitHub and `cd` into the project directory.
 This will install all necessary dependencies, including dev-dependencies, to allow you to build the project alongside install developer tools to make development easier.
-3. Run `npm install` then `npx electron-forge import` then `npm run make` to build the app to ensure that it is working for you. The built app is in the `out` folder
+3. Run `npm install` then `electron-packager "sourcedir" "Vapor Authenticator" --platform=win32 --arch=x64` to build the app to ensure that it is working for you. The built app is in the `out` folder
 
 ## Roadmap
 
