@@ -60,7 +60,7 @@ export default function BaseScreen(props) {
                 <Link className="text-sm w-full cursor-pointer" to="/authenticator">
                     <div className={`font-bold text-md p-2 pl-4 ${CurrentPage.Authenticator == currentPage ? "text-white" : "text-gray-400"} hover:text-white`} onClick={() => {
                         setCurrentPage(CurrentPage.Authenticator);
-                    }}>Authenticator</div>
+                    }}>Authentificateur</div>
                 </Link>
                 <br />
                 <div className="text-sm w-full cursor-pointer" onClick={async () => {
